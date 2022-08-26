@@ -1,10 +1,17 @@
 import { Fragment } from 'react'
 import Planet from './planet'
 
+const showMessage = () =>{
+    return(
+        alert('Meu primeiro evento')
+    )
+}
+
 const Planets = () =>{
     return(
         <Fragment>
             <h3>Planet List</h3>
+            <button onClick={showMessage}>Show Message!</button>
             <hr/>
             <Planet title = "Mercúrio"
                     description = "Mercúrio é o menor[nota 1][nota 2] e mais interno planeta do Sistema Solar, orbitando o Sol a cada 87,969 dias terrestres. A sua órbita tem a maior excentricidade e o seu eixo apresenta a menor inclinação em relação ao plano da órbita dentre todos os planetas do Sistema Solar. Mercúrio completa três rotações em torno de seu eixo a cada duas órbitas."
