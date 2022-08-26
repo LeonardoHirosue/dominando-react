@@ -15,11 +15,6 @@ const Planet = (props) => {
             {title}
             <DescriptionWithLink description = {props.description} link = {props.link}/>
             <GrayImg url_img = {props.img_url} color = {props.color}/>
-
-            <h4>Satélites</h4>
-            <ul>
-                {['a', 'b', 'c', 'd', 'e'].map(name => <li>Satélite {name}</li>)}
-            </ul>
             <hr/>
         </div>
     )
