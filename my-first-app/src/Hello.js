@@ -1,9 +1,9 @@
 import React from 'react';
 
-class HelloWord extends React.Components{
+class HelloWorld extends React.Component{
     render() {
         return <h1>Hello World</h1>;
     }
 }
 
-export default HelloWord
+export default HelloWorld

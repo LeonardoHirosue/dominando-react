@@ -1,9 +1,11 @@
-import HelloWord from "./Hello";
+import HelloWorld from "./Hello";
+import LoremIpsum from "./components/LoremIpsum";
 
 function App() {
   return (
     <div>
-      <HelloWord/>
+      <HelloWorld/>
+      <LoremIpsum/>
     </div>
   );
 }
