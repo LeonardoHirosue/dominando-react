@@ -3,7 +3,7 @@ import GrayImg from '../../shared/gray_img'
 
 const Planet = (props) => {
     return (
-        <div>
+        <div onClick={() => props.clickOnPlanet(props.title)}>
             <h4>{props.title}</h4>
             <DescriptionWithLink description ={props.description} link = {props.link}/>
             <GrayImg url_img = {props.img_url}/>
