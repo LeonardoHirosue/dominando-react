@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DescriptionWithLink from '../../shared/description_with_link'
 import GrayImg from '../../shared/gray_img'
 
@@ -8,34 +8,25 @@ async function getSatellites(id){
     return data;
 }
 
-class Planet extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            satellites: [] 
-        }
-    }
+const Planet = (props) => {
+    const[ satellite, setSatellite] = useState([])
 
-    componentDidMount(){
-        getSatellites(this.props.id).then( data => {
-            this.setState(state => ({
-                satellites: data["satellites"]
-            }))
+    useEffect(() => {
+        getSatellites(props.id).then( data => {
+            setSatellite(data["satellites"])
         })
-    }
+    },[])
 
-    render(){
-        return (
-            <div>
-                <h4>{this.props.title}</h4>
-                <DescriptionWithLink description = {this.props.description} link = {this.props.link}/>
-                <GrayImg img_url = {this.props.img_url}/>
-                <h4>Satélites</h4>
-                <ul>{this.state.satellites.map((satellite, index) => <li key={index}>{satellite.name}</li>)}</ul>
-                <hr/>
-            </div>
-        )
-    }    
+    return (
+        <div>
+            <h4>{props.title}</h4>
+            <DescriptionWithLink description = {props.description} link = {props.link}/>
+            <GrayImg img_url = {props.img_url}/>
+            <h4>Satélites</h4>
+            <ul>{satellite.map((satellite, index) => <li key={index}>{satellite.name}</li>)}</ul>
+            <hr/>
+        </div>
+    )  
 }
 
 export default Planet
