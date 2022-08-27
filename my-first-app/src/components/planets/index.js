@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Planet from './planet'
+import Form from './form'
 
 async function getPlanets(){
     const response = await fetch('http://localhost:3000/api/planets.json');
@@ -16,22 +17,15 @@ const Planets = () => {
         })
     }, [])
 
-    const duplicateLast = () => {
-        let lastPlanet = planets[planets.length-1]
-        setPlanets([...planets, lastPlanet])
-    }
-
-    const removeLast = () => {
-        let newPlanets = [...planets]
-        newPlanets.pop()
-        setPlanets(newPlanets)
+    const addPlanet = (newPlanet) =>{
+        setPlanets([...planets, newPlanet])
     }
 
     return(
         <Fragment>
             <h3>Planet List</h3>
-            <button onClick={removeLast}>Remove Last</button>
-            <button onClick={duplicateLast}>Duplicate Last</button>
+            <hr/>
+            <Form addPlanet={addPlanet}/>
             <hr/>
             {planets.map((planet,index) =>
                 <Planet id = {planet.id}
