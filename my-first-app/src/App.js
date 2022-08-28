@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
-import Planets from "./components/planets"
+import AppRoutes from './routes';
 
 function App() {
   return (
     <Fragment>
-      <Planets/>
+      <AppRoutes/>
     </Fragment>
   );
 }
