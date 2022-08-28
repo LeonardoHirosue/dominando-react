@@ -12,10 +12,10 @@ const Planet = (props) => {
     const[ satellite, setSatellite] = useState([])
 
     useEffect(() => {
-        getSatellites(props.id).then( data => {
+        getSatellites(props.id).then(data => {
             setSatellite(data["satellites"])
         })
-    },[])
+    }, [])
 
     return (
         <div>
